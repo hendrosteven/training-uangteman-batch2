@@ -14,7 +14,7 @@ import com.uangteman.model.Penulis;
 
 @RestController
 @RequestMapping("/penulis")
-public class PegawaiController {
+public class PenulisController {
 
 	@Autowired
 	private PenulisDao dao;	

@@ -19,7 +19,8 @@ public class ArtikelDao {
 	private PenulisDao dao;
 	
 	public int insert(Artikel artikel){
-		return jdbc.update("INSERT INTO tartikel(title,tanggal,content,penulis_id)", 
+		return jdbc.update("INSERT INTO tartikel(title,tanggal,content,penulis_id) "
+				+ "VALUES(?,?,?,?)", 
 				artikel.getTitle(),artikel.getTanggal(), artikel.getContent(),
 				artikel.getPenulis().getId());
 	}
