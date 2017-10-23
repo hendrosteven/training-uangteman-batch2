@@ -1,17 +1,16 @@
 package com.uangteman.model;
 
-import java.util.Date;
-
+	
 public class Artikel {
 	private int id;
 	private String title;
-	private Date tanggal;
+	private String tanggal;
 	private String content;
 	private Penulis penulis;	
 	
 	public Artikel(){}
 
-	public Artikel(int id, String title, Date tanggal, String content, Penulis penulis) {
+	public Artikel(int id, String title, String tanggal, String content, Penulis penulis) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -36,11 +35,11 @@ public class Artikel {
 		this.title = title;
 	}
 
-	public Date getTanggal() {
+	public String getTanggal() {
 		return tanggal;
 	}
 
-	public void setTanggal(Date tanggal) {
+	public void setTanggal(String tanggal) {
 		this.tanggal = tanggal;
 	}
 
