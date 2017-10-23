@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uangteman.dao.ArtikelDao;
+import com.uangteman.dto.FormTanggal;
 import com.uangteman.model.Artikel;
 
 @RestController
@@ -38,5 +38,15 @@ public class ArtikelController {
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public Artikel getById(@PathVariable("id") int id) {
 		return dao.getById(id);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value="/penulis/{penulisId}")
+	public List<Artikel> getByPenulis(@PathVariable("penulisId") int penulisId) {
+		return dao.getByPenulis(penulisId);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value="/tanggal")
+	public List<Artikel> getByTanggal(@RequestBody FormTanggal form) {
+		return dao.getByTanggal(form.getAwal(), form.getAkhir());
 	}
 }

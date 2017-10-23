@@ -30,9 +30,26 @@ public class ArtikelDao {
 					new ArtikelMapper(dao));
 	}
 	
+	
 	public Artikel getById(int id){
-		return jdbc.queryForObject("SELECT id,title,tanggal,content, penulis_id FROM tartikel",
+		return jdbc.queryForObject("SELECT id,title,tanggal,content, penulis_id FROM tartikel " 
+				+ "WHERE id=?",
 					new Object[]{id},
 					new ArtikelMapper(dao));
+	}
+	
+	public List<Artikel> getByPenulis(int penulisId){
+		return jdbc.query("SELECT id,title,tanggal,content, penulis_id FROM tartikel "
+				+ "WHERE penulis_id=?", 
+				new Object[]{penulisId},
+				new ArtikelMapper(dao));	
+		
+	}
+	
+	public List<Artikel> getByTanggal(String awal, String akhir){
+		return jdbc.query("SELECT id,title,tanggal,content, penulis_id FROM tartikel "
+				+ "WHERE tanggal>=? and tanggal<=?", 
+				new Object[]{awal, akhir},
+				new ArtikelMapper(dao));
 	}
 }
