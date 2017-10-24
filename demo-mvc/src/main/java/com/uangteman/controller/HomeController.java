@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.uangteman.dto.SearchForm;
 import com.uangteman.repo.CategoryRepo;
 import com.uangteman.repo.ProductRepo;
 
@@ -23,6 +25,7 @@ public class HomeController {
 	public String index(Model model){
 		model.addAttribute("categories", repo.findAll());
 		model.addAttribute("products", pRepo.findAll());
+		model.addAttribute("form", new SearchForm());
 		return "index";
 	}
 	
@@ -30,6 +33,15 @@ public class HomeController {
 	public String findByCategory(@PathVariable("id") Long id, Model model){
 		model.addAttribute("categories", repo.findAll());
 		model.addAttribute("products", pRepo.findByCategory(id));
+		model.addAttribute("form", new SearchForm());
+		return "index";
+	}
+	 
+	@RequestMapping(method=RequestMethod.POST, value="search")
+	public String findByCategory(SearchForm form, Model model){
+		model.addAttribute("categories", repo.findAll());
+		model.addAttribute("products", pRepo.findByName("%"+form.getName()+"%"));
+		model.addAttribute("form", new SearchForm());
 		return "index";
 	}
 }
