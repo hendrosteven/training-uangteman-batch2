@@ -27,8 +27,8 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<form class="navbar-form navbar-left" th:action="@{/search}" th:object="${form}" 
-							method="post">
+					<form class="navbar-form navbar-left" th:action="@{/search}"
+						th:object="${form}" method="post">
 						<div class="form-group">
 							<input type="text" class="form-control" th:field="*{name}"
 								placeholder="Product name" />
@@ -43,7 +43,7 @@
 							aria-expanded="false">Account <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Sign In</a></li>
-								<li><a th:href="@{/signup}">Sing Up</a></li>
+								<li><a href="#">Sing Up</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -52,46 +52,30 @@
 			<!-- /.container-fluid -->
 		</div>
 	</nav>
-	<br/><br/><br/>
+	<br />
+	<br />
+	<br />
+
 	<div class="container">
-		<div class="col-lg-3">
-			<div class="row">
-				<div class="col-lg-12">				
-					<ul class="list-group">
-						<li class="list-group-item"><a href="/">All Products</a></li>
-						<li th:each="category : ${categories}" class="list-group-item">
-							<a th:href="@{/product/}+${category.id}"><span th:text="${category.name}"></span></a>
-						</li>
-					</ul>
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<form method="post" th:action="@{/signup}" th:object="${user}" >
+				<div class="form-group">
+					<label for="name">Full Name</label> <input type="text"
+						class="form-control" th:field="*{fullName}"/>
 				</div>
-			</div>
+				<div class="form-group">
+					<label for="name">Email</label> <input type="text"
+						class="form-control" th:field="*{email}"/>
+				</div>
+				<div class="form-group">
+					<label for="name">Password</label> <input type="password"
+						class="form-control" th:field="*{password}"/>
+				</div>
+				<p><input type="submit" class="btn btn-success" value="Register"/></p>
+			</form>
 		</div>
-		<div class="col-lg-9">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Price</th>
-						<th>Description</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="product: ${products}">
-						<td th:text="${product.name}"></td>
-						<td th:text="${product.harga}"></td>
-						<td th:text="${product.description}"></td>
-						<td style="width: 100px">
-							<a class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							<a class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></a>
-						</td>
-					</tr>
-					<tr th:if="${products.isEmpty()}">
-						<td colspan="4">No Records found</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<div class="col-lg-4"></div>
 	</div>
 
 	<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
