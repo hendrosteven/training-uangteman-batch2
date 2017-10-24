@@ -47,7 +47,39 @@
 			<!-- /.container-fluid -->
 		</div>
 	</nav>
-
+	<br/><br/><br/>
+	<div class="container">
+		<div class="col-lg-3">
+			<div class="row">
+				<div class="col-lg-12">				
+					<ul class="list-group">
+						<li class="list-group-item">All Products</li>
+						<li th:each="category : ${categories}" class="list-group-item">
+							<span th:text="${category.name}"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-9">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product: ${products}">
+						<td th:text="${product.name}"></td>
+						<td th:text="${product.harga}"></td>
+						<td th:text="${product.description}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 	<script src="webjars/jquery/3.2.1/jquery.min.js"></script>
 	<script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
