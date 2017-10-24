@@ -12,7 +12,9 @@ import com.uangteman.entity.Product;
 public interface ProductRepo extends CrudRepository<Product, Long> {
 	
 	public List<Product> findAll();
-	public List<Product> findByCategory(Category category);
+	
+	@Query("select p from Product p where p.category.id= :id")
+	public List<Product> findByCategory(@Param("id") Long id);
 	
 	@Query("select p from Product p where p.name like :name")
 	public List<Product> findByName(@Param("name") String name);
