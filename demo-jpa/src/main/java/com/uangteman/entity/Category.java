@@ -20,6 +20,7 @@ public class Category implements Serializable {
 	@Column(length=100, unique=true, nullable=false)
 	private String name;
 	
+	
 	public Category(){}
 
 	public Long getId() {
