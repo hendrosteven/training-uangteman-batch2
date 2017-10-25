@@ -1,0 +1,5 @@
+<input type="text" [(ngModel)]="hello"> 
+<p><button class="btn btn-success" (click)="addToList()">Add To List</button></p> 
+<ul>
+    <li *ngFor="let x of data">{{x}}</li>
+</ul>
