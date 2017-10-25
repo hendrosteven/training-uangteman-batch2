@@ -1,3 +1,45 @@
-<ul>
-    <li *ngFor="let category of categories">{{category.name}}</li>
-</ul>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <a class="navbar-brand" href="#">Title</a>
+  <ul class="nav navbar-nav">
+    <li class="active">
+      <a href="#">Home</a>
+    </li>
+    <li>
+      <a href="#">Link</a>
+    </li>
+  </ul>
+</nav>
+<br/>
+<br/>
+<br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories; let i = index">
+            <td>{{i+1 }}.</td>
+            <td>{{category.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label>Category Name</label>
+        <input type="text" class="form-control"
+             [(ngModel)]="category.name"/> 
+      </div>
+      <p>
+        <a class="btn btn-info" (click)="onSaveCategory()">Save</a>
+      </p>
+    </div>
+  </div>
+</div>

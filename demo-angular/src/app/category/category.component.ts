@@ -10,6 +10,7 @@ import { CategoryService } from '../services/category.service';
 export class CategoryComponent implements OnInit {
 
   categories: Category[] = [];
+  category: Category = new Category();
   
   constructor(private categoryService: CategoryService) { }
 
@@ -19,8 +20,17 @@ export class CategoryComponent implements OnInit {
 
   onLoadData(){
     this.categoryService.gatAllCategory().subscribe(output =>{
+      console.log(output);
       this.categories = output;
     }, error=>{
+      console.log(error);
+    });
+  }
+
+  onSaveCategory(){
+    this.categoryService.saveCategory(this.category).subscribe(output=>{
+      this.categories.push(output);
+    },error=>{
       console.log(error);
     });
   }

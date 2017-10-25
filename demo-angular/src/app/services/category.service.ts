@@ -24,6 +24,12 @@ export class CategoryService{
             .catch(this.handleError);
     }
 
+    saveCategory(category){
+        return this.http.post(this.url, category,this.options)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
     handleError(error){
         return Observable.throw(error.json() || 'Server error');
     }
