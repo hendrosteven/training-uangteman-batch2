@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Spring MVC</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<div class="container">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<h3 class="text-center">Input Product</h3>
+			<span th:if="${session.info}!=null">
+				<div class="alert alert-success">
+					<strong>Thanks!</strong>
+					<p th:text="${session.info.message}"></p>
+				</div> <span th:remove="all" th:text="${session.remove('info')}"></span>
+			</span>
+			<form method="post" th:action="@{/product}" th:object="${product}">
+				<div class="form-group">
+					<label for="name">Product Name</label> <input type="text"
+						class="form-control" th:field="*{name}" />
+				</div>
+				<div class="form-group">
+					<label for="name">Price</label> <input type="number"
+						class="form-control" th:field="*{harga}" />
+				</div>
+				<div class="form-group">
+					<label for="name">Category</label> 
+					<select class="form-control" th:field="*{category.id}">
+						<option th:each="cat : ${categories}" 
+						th:value="${cat.id}" th:text="${cat.name}"></option>
+					</select>					
+				</div>
+				<div class="form-group">
+					<label for="name">Description</label> <input type="text"
+						class="form-control" th:field="*{description}" />
+				</div>
+				<p>
+					<input type="submit" class="btn btn-success" value="Save" />
+				</p>
+			</form>
+		</div>
+		<div class="col-lg-3"></div>
+	</div>
+	<div th:replace="fragments/footer::footer"></div>
+
+</body>
+</html>

@@ -36,7 +36,7 @@
 				<tbody>
 					<tr th:each="product: ${products}">
 						<td th:text="${product.name}"></td>
-						<td th:text="${product.harga}"></td>
+						<td align="right" th:text="${#numbers.formatDecimal(product.harga, 0,'COMMA',0,'POINT')}"></td>
 						<td th:text="${product.description}"></td>
 						<td style="width: 100px">
 							<a class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>

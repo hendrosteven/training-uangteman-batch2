@@ -54,8 +54,8 @@
 								<span th:text="'Welcome ' + ${session.loginUser.fullName}"></span> 
 									<span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a>Create Product</a></li>
-									<li><a>Sign Out</a></li>
+									<li><a th:href="@{/product}">Create Product</a></li>
+									<li><a th:href="@{/signout}">Sign Out</a></li>
 								</ul></li>
 						</ul>
 
