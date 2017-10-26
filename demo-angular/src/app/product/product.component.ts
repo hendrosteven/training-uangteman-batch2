@@ -21,17 +21,9 @@ export class ProductComponent implements OnInit {
           private categoryService: CategoryService) { }
 
   ngOnInit() {
-    this.onLoadProduct();
-    this.onLoadCategory();
+    this.onLoadProduct();  
   }
 
-  onLoadCategory(){
-    this.categoryService.gatAllCategory().subscribe(output=>{
-      this.categories = output;
-    },error=>{
-      console.log(error);
-    })
-  }
 
   onLoadProduct(){
     this.productService.getAllProduct().subscribe(output=>{
@@ -50,14 +42,6 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  onSaveProduct(){
-    this.productService.saveOrUpdateProduct(this.product)
-        .subscribe(output=>{
-          this.products.push(output);
-          this.product = new Product();
-        },error=>{
-          console.log(error);
-        });
-  }
+ 
 
 }

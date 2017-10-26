@@ -27,8 +27,18 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a routerLink="product">Product</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a routerLink="product">List Product</a>
+                            </li>
+                            <li>
+                                <a routerLink="input-product">Input Product</a>
+                            </li>
+                        </ul>
                     </li>
                     <li *ngIf="!isLogin()" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account
