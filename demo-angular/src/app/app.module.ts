@@ -13,13 +13,15 @@ import { RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { InputCategoryComponent } from './input-category/input-category.component';
 
 export const AppRouter: any = [
   {path: "", component: AppComponent},
   {path: "category", component: CategoryComponent},
   {path: "product", component: ProductComponent},
   {path: "register", component: RegisterComponent},
-  {path: "login", component: LoginComponent}
+  {path: "login", component: LoginComponent},
+  {path: "input-category", component: InputCategoryComponent}
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ export const AppRouter: any = [
     CategoryComponent,
     ProductComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    InputCategoryComponent
   ],
   imports: [
     FormsModule,

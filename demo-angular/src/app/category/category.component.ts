@@ -10,8 +10,7 @@ import { CategoryService } from '../services/category.service';
 export class CategoryComponent implements OnInit {
 
   categories: Category[] = [];
-  category: Category = new Category();
-  
+   
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
@@ -27,12 +26,6 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  onSaveCategory(){
-    this.categoryService.saveCategory(this.category).subscribe(output=>{
-      this.categories.push(output);
-    },error=>{
-      console.log(error);
-    });
-  }
+  
 
 }
