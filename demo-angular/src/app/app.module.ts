@@ -12,12 +12,14 @@ import { ProductService } from './services/product.service';
 import { RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 export const AppRouter: any = [
   {path: "", component: AppComponent},
   {path: "category", component: CategoryComponent},
   {path: "product", component: ProductComponent},
-  {path: "register", component: RegisterComponent}
+  {path: "register", component: RegisterComponent},
+  {path: "login", component: LoginComponent}
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ export const AppRouter: any = [
     HelloComponent,
     CategoryComponent,
     ProductComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,

@@ -28,9 +28,11 @@ export class UserService {
     }
 
     login(form : LoginForm) {
+        let tmpForm = Object.assign({}, form);
+        tmpForm.password = Md5.hashStr(tmpForm.password).toString();
         return this
             .http
-            .post(this.url + '/login', form, this.options)
+            .post(this.url + '/login', tmpForm, this.options)
             .map(res => res.json())
             .catch(this.handleError);
     }

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="col-lg-4">
+    </div>
+    <div class="col-lg-4">
+      <h3 text-center>Login</h3>      
+      <div *ngIf="errors" class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Login fail, please try again
+      </div>     
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" placeholder="Enter email" 
+          [(ngModel)]="loginForm.email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" 
+          [(ngModel)]="loginForm.password">
+      </div>
+      <p>
+        <a class="btn btn-success" (click)="onUserLogin()">
+          Login</a>
+      </p>
+    </div>
+    <div class="col-lg-4">
+    </div>
+  </div>

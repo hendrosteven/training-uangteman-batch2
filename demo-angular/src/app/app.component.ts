@@ -12,4 +12,17 @@ export class AppComponent {
     this.router.navigate(['product']);
   }
 
+  isLogin(){
+    if(localStorage.getItem('token')){
+      return true;
+    }else{
+      false;
+    }
+  }
+
+  onLogout(){
+    localStorage.clear();
+    this.router.navigate(['product']);
+  }
+
 }

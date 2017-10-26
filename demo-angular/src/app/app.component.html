@@ -20,19 +20,20 @@
                     <li>
                         <a routerLink="product">Product</a>
                     </li>
-                    <li class="dropdown">
+                    <li *ngIf="!isLogin()" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a>Sign In</a>
+                                <a routerLink="login">Sign In</a>
                             </li>
                             <li>
                                 <a routerLink="register">Sing Up</a>
                             </li>
                         </ul>
                     </li>
+                    <li *ngIf="isLogin()"><a (click)="onLogout()">Logout</a></li>
                 </ul>
             </div>
         </div>
