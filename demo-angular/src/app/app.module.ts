@@ -7,19 +7,22 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryService } from './services/category.service';
+import { ProductComponent } from './product/product.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    CategoryComponent
+    CategoryComponent,
+    ProductComponent
   ],
   imports: [
     FormsModule,
     HttpModule,
     BrowserModule
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

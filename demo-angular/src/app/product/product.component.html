@@ -1,0 +1,75 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <a class="navbar-brand" href="#">Title</a>
+  <ul class="nav navbar-nav">
+    <li class="active">
+      <a href="#">Home</a>
+    </li>
+    <li>
+      <a href="#">Link</a>
+    </li>
+  </ul>
+</nav>
+<br/>
+<br/>
+<br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" [(ngModel)]="searchName.name" class="form-control" 
+                placeholder="Search for...">
+        <span class="input-group-btn"> 
+          <button class="btn btn-default" type="button" (click)="onSearchName()"> 
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index">
+            <td>{{i+1 }}.</td>
+            <td>{{product.name}}</td>
+            <td>{{product.harga}}</td>
+            <td>{{product.category.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" class="form-control"
+             [(ngModel)]="product.name"/> 
+      </div>
+      <div class="form-group">
+          <label>Product Price</label>
+          <input type="number" class="form-control"
+               [(ngModel)]="product.harga"/> 
+        </div>
+        <div class="form-group">
+            <label>Product Category</label>
+            <select class="form-control" [(ngModel)]="product.category">
+              <option *ngFor="let category of categories" 
+                [ngValue]="category">{{category.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Product Description</label>
+            <input type="text" class="form-control"
+                 [(ngModel)]="product.description"/> 
+          </div>
+      <p>
+        <a class="btn btn-info" (click)="onSaveProduct()">Save</a>
+      </p>
+    </div>
+  </div>
+</div>
