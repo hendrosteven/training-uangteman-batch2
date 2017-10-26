@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
 
   user: User = new User();
   success: boolean = false;
+  errors: boolean = false;
 
   constructor(private userService: UserService) { }
 
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
         this.user = new User();
         this.success = true;
     },error=>{
+      this.errors = true;
       console.log(error);
     })
   }

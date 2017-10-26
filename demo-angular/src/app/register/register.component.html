@@ -7,7 +7,12 @@
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
       <span class="sr-only">Info:</span>
         Thank you, registration successull..
-    </div>
+    </div> 
+    <div *ngIf="errors" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Registration fail, please try again
+      </div>
     <div class="form-group">
       <label for="name">Full Name</label>-
       <input type="text" class="form-control" placeholder="Enter full name" [(ngModel)]="user.fullName" />
