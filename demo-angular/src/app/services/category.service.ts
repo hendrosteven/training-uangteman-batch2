@@ -13,7 +13,8 @@ export class CategoryService{
     constructor(private http: Http){
         this.headers = new Headers({
             'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache'            
+            'Cache-Control': 'no-cache',
+            'Authorization': 'Basic dXNlcjoxMjM0NQ=='             
         });
         this.options = new RequestOptions({headers: this.headers});
     }
