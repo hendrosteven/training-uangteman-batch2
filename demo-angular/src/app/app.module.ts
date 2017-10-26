@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { InputCategoryComponent } from './input-category/input-category.component';
 import { InputProductComponent } from './input-product/input-product.component';
+import { AuthGuard } from './guard/auth.guard';
 
 export const AppRouter: any = [
   {path: "", component: AppComponent},
@@ -22,8 +23,8 @@ export const AppRouter: any = [
   {path: "product", component: ProductComponent},
   {path: "register", component: RegisterComponent},
   {path: "login", component: LoginComponent},
-  {path: "input-category", component: InputCategoryComponent},
-  {path: "input-product", component: InputProductComponent}
+  {path: "input-category", component: InputCategoryComponent, canActivate: [AuthGuard]},
+  {path: "input-product", component: InputProductComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -44,7 +45,7 @@ export const AppRouter: any = [
     BrowserModule,
     RouterModule.forRoot(AppRouter,{useHash: true})
   ],
-  providers: [CategoryService, ProductService, UserService],
+  providers: [CategoryService, ProductService, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
