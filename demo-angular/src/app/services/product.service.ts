@@ -17,8 +17,7 @@ export class ProductService{
     constructor(private http: Http){
         this.headers = new Headers({
             'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',
-            'Authorization': 'Basic dXNlcjoxMjM0NQ=='            
+            'Cache-Control': 'no-cache'                     
         });
         this.options = new RequestOptions({headers: this.headers});
     }
