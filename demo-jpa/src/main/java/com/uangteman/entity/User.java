@@ -10,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,12 +25,21 @@ public class User implements Serializable, UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message="Full name can't empty!")
+	@Size(max=150,message="Max character 150")
 	@Column(length = 150, nullable = false)
 	private String fullName;
+	
+	@NotBlank(message="Email can't empty!")
+	@Email(message="Invalid email format")
 	@Column(length = 150, nullable = false, unique = true)
 	private String email;
+	
+	@NotBlank(message="Password can't empty!")
 	@Column(length = 150, nullable = false)
 	private String password;
+	
 	@Column(length = 100)
 	private String roles;
 

@@ -19,10 +19,11 @@ export class UserService {
     }
 
     register(user : User) {
-        user.password = Md5.hashStr(user.password).toString();
+        let userTmp = Object.assign({}, user);
+        userTmp.password = Md5.hashStr(userTmp.password).toString();
         return this
             .http
-            .post(this.url + '/register', user, this.options)
+            .post(this.url + '/register', userTmp, this.options)
             .map(res => res.json())
             .catch(this.handleError);
     }

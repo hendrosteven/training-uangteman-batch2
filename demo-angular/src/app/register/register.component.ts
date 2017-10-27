@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   user: User = new User();
   success: boolean = false;
   errors: boolean = false;
+  messages: string[] = [];
 
   constructor(private userService: UserService) { }
 
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
     },error=>{
       this.errors = true;
       console.log(error);
+      this.messages = error.messages
     })
   }
 }
