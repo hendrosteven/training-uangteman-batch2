@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserXhr,HttpModule } from '@angular/http';
+import { NgProgressModule, NgProgressBrowserXhr } from 'ngx-progressbar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
@@ -36,16 +39,18 @@ export const AppRouter: any = [
     RegisterComponent,
     LoginComponent,
     InputCategoryComponent,
-    InputProductComponent
-    
+    InputProductComponent    
   ],
   imports: [
     FormsModule,
     HttpModule,
     BrowserModule,
+    NgProgressModule,
+    BrowserAnimationsModule, 
+    ToastModule.forRoot(),
     RouterModule.forRoot(AppRouter,{useHash: true})
   ],
-  providers: [CategoryService, ProductService, UserService, AuthGuard],
+  providers: [CategoryService, ProductService, UserService, AuthGuard, { provide: BrowserXhr, useClass: NgProgressBrowserXhr }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
